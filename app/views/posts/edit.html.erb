@@ -26,6 +26,10 @@
     </p>
 
     <p>
+      <%= f.collection_select :category_id, @categories, :id, :name, prompt: true %><br>
+    </p>
+
+    <p>
       <%= f.submit %>
     </p>
 <% end %>

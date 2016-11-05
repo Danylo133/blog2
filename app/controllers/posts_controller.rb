@@ -3,6 +3,7 @@ class PostsController < ApplicationController
 
   def index
   @posts = Post.all
+    @categories = Category.all
   end
 
   def create
@@ -11,17 +12,19 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to @post
     else
+      @categories = Category.all
       render :new
     end
   end
 
   def new
     @post = Post.new
+    @categories = Category.all
   end
 
   def edit
     @post = Post.find(params[:id])
-
+    @categories = Category.all
   end
 
   def show
@@ -34,6 +37,7 @@ class PostsController < ApplicationController
     if @post.update(post_params)
       redirect_to @post
     else
+      @categories = Category.all
       render :edit
       end
     end
@@ -45,6 +49,11 @@ class PostsController < ApplicationController
    redirect_to posts_path
 
   end
+
+  def show_subjects
+    @category = Category.find(params[:id])
+  end
+
 
   private
 
