@@ -14,40 +14,38 @@
 </p>
 
 <h3>Comments</h3>
-<% @post.comments.each do |c| %>
-  <p>
-    <strong>Commenter:</strong>
-    <%= c.commenter %>
-  </p>
+<% @post.comments.each do |comment| %>
+    <p>
+      <strong>Commenter:</strong>
+      <%= comment.commenter %>
+    </p>
 
-  <p>
-    <strong>Comment:</strong>
-    <%= c.body %>
-  </p>
+    <p>
+      <strong>Comment:</strong>
+      <%= comment.body %>
+    </p>
 
-   <p>
-      <%= link_to 'Destroy Comment', post_comment_path(@post),
-                                     method: :delete,
-                                     data: { confirm: 'Are you sure?' } %>
-   </p>
+    <p>
+      <%= link_to 'Destroy Comment', post_comment_path(comment.post, comment),
+                  method: :delete,
+                  data: {confirm: 'Are you sure?'} %>
+    </p>
 
 <% end %>
 
 <h2>Add a comment:</h2>
-<%= form_for([@post, @post.comments.build]) do |p| %>
-  <p>
-    <%= p.label :commenter %><br>
-    <%= p.text_field :commenter %>
-  </p>
-  <p>
-    <%= p.label :body %><br>
-    <%= p.text_area :body %>
-  </p>
-
-<p>
-<%= p.submit %>
-</p>
-
+<%= form_for([@post, @post.comments.build]) do |comment| %>
+    <p>
+      <%= comment.label :commenter %><br>
+      <%= comment.text_field :commenter %>
+    </p>
+    <p>
+      <%= comment.label :body %><br>
+      <%= comment.text_area :body %>
+    </p>
+    <p>
+      <%= comment.submit %>
+    </p>
 <% end %>
 
 <%= link_to 'Back', posts_path %>
