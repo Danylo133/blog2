@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
-  @posts = Post.all
+    @posts = Post.all
     @categories = Category.all
   end
 
@@ -35,13 +35,13 @@ class PostsController < ApplicationController
     else
       @categories = Category.all
       render :edit
-      end
     end
+  end
 
   def destroy
-   @post.destroy
+    @post.destroy
 
-   redirect_to posts_path
+    redirect_to posts_path
 
   end
 
