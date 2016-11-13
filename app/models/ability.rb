@@ -6,8 +6,7 @@ class Ability
     if user.has_role? :admin
       can :manage, :all
     else # if user.signed_in_count?
-        can :create, Post
-        can :read, Post
+        can [ :create, :read], Post
         can [ :edit, :update, :destroy ], Post do |post|
           post.user_id == user.id
         end
