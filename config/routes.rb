@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy]
   end
 
+  get 'users/:id/posts' => 'users#posts', :as => :user_posts
+
   root 'posts#index'
 
 

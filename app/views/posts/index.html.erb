@@ -17,7 +17,7 @@
         <td><%= post.title %></td>
         <td><%= post.text %></td>
         <td><%= post.category.name %></td>
-        <td><%= post.user.name%></td>
+        <td><%= link_to post.user.name, user_posts_path(post.user) %></td>
             <% if can? :read, post %>
                 <td><%= link_to 'Show', post_path(post) %></td>
             <% end %>
