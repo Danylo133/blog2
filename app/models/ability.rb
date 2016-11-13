@@ -10,6 +10,11 @@ class Ability
         can [ :edit, :update, :destroy ], Post do |post|
           post.user_id == user.id
         end
+        can [ :destroy ], Comment do |comment|
+          comment.user_id == user.id
+        end
+
+
      # else
       #  can :read, Post
      # end
