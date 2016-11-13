@@ -18,10 +18,10 @@
         <td><%= post.text %></td>
         <td><%= post.category.name %></td>
         <td><%= post.user.email%></td>
-        <% if user_signed_in? %>
             <% if can? :read, post %>
                 <td><%= link_to 'Show', post_path(post) %></td>
             <% end %>
+        <% if user_signed_in? %>
             <% if can? :update, post %>
                 <td><%= link_to 'Edit', edit_post_path(post) %> </td>
             <% end %>
