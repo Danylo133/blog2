@@ -25,12 +25,13 @@
       <%= comment.body %>
     </p>
 
-    <% if (user_signed_in?) %>
+    <% if user_signed_in? %>
         <p>
           <% if can? :destroy, comment %>
               <%= link_to 'Destroy Comment', post_comment_path(comment.post, comment),
                           method: :delete,
                           data: {confirm: 'Are you sure?'} %>
+              <%= link_to 'Edit', edit_post_comment_path(@post, comment) %>
           <% end %>
         </p>
     <% end %>
