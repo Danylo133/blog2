@@ -1,7 +1,7 @@
 <h1>Editing comment</h1>
 
 
-<%= form_for :comment, remote: true,  url: post_comment_path(@post, @comment), method: :patch do |comment| %>
+<%= form_for :comment, remote: true, url: post_comment_path(@post, @comment), method: :patch do |comment| %>
     <p>
       <%= comment.label :body %><br>
       <%= comment.text_area :body %>
