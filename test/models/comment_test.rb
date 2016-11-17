@@ -1,7 +1,10 @@
 require 'test_helper'
 
 class CommentTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
-end
+  test "shoud not save comment without text" do
+    comment = Comment.new
+    comment.commenter = "fake_commenter"
+    comment.body =""
+    assert_not comment.save
+  end
+  end

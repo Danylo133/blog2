@@ -7,8 +7,8 @@ class CommentsController < ApplicationController
     @comment.save
     redirect_to post_path(@post)
   end
-  def show
 
+  def show
   end
 
   def edit
