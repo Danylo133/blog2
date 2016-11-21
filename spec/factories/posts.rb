@@ -1,8 +1,13 @@
 FactoryGirl.define do
+
   factory :post do
-    title { "Faker::Name.title" }
-    text  { "Faker::Name.text" }
+    association :category
+    title  "fake title"
+    text   "fake text"
+  end
 
-
+  factory :category do
+    name "fake category name"
   end
 end
+
